@@ -12,7 +12,7 @@ class UserDisplay(BaseModel):
     email: str
 
     class Config(): 
-        orm_mode = True
+        from_attributes = True
 
 
 class PostBase(BaseModel):
@@ -20,6 +20,6 @@ class PostBase(BaseModel):
     image_url_type: str
     caption: str
     creater_id: int
-    
+
 
 
