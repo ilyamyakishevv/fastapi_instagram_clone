@@ -1,11 +1,11 @@
 from routers.schemas import UserBase
-from db.models import User
+from db.models import DbUser
 from sqlalchemy.orm.session import Session
 from db.hashingpass import Hash
 
 
 def create_user(db: Session, request: UserBase):
-    new_user = User(
+    new_user = DbUser(
         username=request.username,
         email=request.email,
         password=Hash.bcrypt(request.password)
@@ -13,4 +13,4 @@ def create_user(db: Session, request: UserBase):
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
-    return new_user 
+    return new_user

@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from datetime import datetime
 
 
 class UserBase(BaseModel):
@@ -22,4 +23,20 @@ class PostBase(BaseModel):
     creater_id: int
 
 
+class User(BaseModel):
+    username: str
+    
+    class Config(): 
+        from_attributes = True
 
+
+class PostDisplay(BaseModel):
+    id: int
+    image_url: str
+    image_url_type: str
+    caption: str
+    timestamp: datetime
+    user: User
+
+    class Config(): 
+        from_attributes = True
