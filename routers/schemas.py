@@ -20,7 +20,7 @@ class PostBase(BaseModel):
     image_url: str
     image_url_type: str
     caption: str
-    creater_id: int
+    creator_id: int
 
 
 class User(BaseModel):
