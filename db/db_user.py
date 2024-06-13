@@ -14,3 +14,10 @@ def create_user(db: Session, request: UserBase):
     db.commit()
     db.refresh(new_user)
     return new_user
+
+def get_user(db: Session, user_id: int):
+    user =  db.query(DbUser).filter(DbUser.id == user_id).first()
+    return user
+
+def get_all_users(db: Session):
+    return db.query(DbUser).all()
